@@ -1,3 +1,11 @@
+gunicorn
+flask
+flask-cors
+requests
+joblib
+scikit-learn
+pandas
+numpy
 Flask
 requests
 beautifulsoup4
