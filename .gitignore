@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pkl
+*.der
+*.p8
+*.log
+recrawl_results/
+knowledge_base/
+*.csv
