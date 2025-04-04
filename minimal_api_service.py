@@ -4,6 +4,7 @@ from domain_classifier import DomainClassifier
 import requests
 import time
 from urllib.parse import urlparse
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/classify-domain": {"origins": "*"}})  # Allow all origins explicitly
@@ -13,10 +14,9 @@ APIFY_TASK_ID = "z3plE6RoQ5W6SNLDe"
 APIFY_API_TOKEN = "apify_api_o4flnhGKKSc2fg25q0mUTkcojjxO4n0xiBIv"
 
 classifier = DomainClassifier(
-    model_path="./domain_classifier_model_enhanced.pkl",
+    model_path=os.path.join(os.path.dirname(__file__), 'domain_classifier_model_enhanced.pkl'),
     use_pinecone=False
 )
-
 def start_apify_crawl(url):
     endpoint = f"https://api.apify.com/v2/actor-tasks/{APIFY_TASK_ID}/runs?token={APIFY_API_TOKEN}"
     payload = {"startUrls": [{"url": url}]}
